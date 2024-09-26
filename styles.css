@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cursive', sans-serif;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+}
+
+.book {
+    width: 60%;
+    height: 400px;
+    margin: auto;
+    background-color: #fff5f5;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    padding: 30px;
+    transition: transform 0.5s ease;
+}
+
+.page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.page.visible {
+    display: block;
+    opacity: 1;
+}
+
+h2 {
+    font-family: 'Georgia', serif;
+    color: #ff6f61;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+ul {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.controls {
+    margin-top: 30px;
+}
+
+.btn {
+    background-color: #ff6f61;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff867c;
+}
+
+/* Contenedor de la línea de tiempo */
+.timeline-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Línea de tiempo general */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-in-out forwards;
+    position: relative;
+}
+
+/* Estilo de cada tarjeta */
+.timeline-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+/* Hacer que las tarjetas crezcan con el contenido */
+.timeline-item ul {
+    font-size: 16px;
+    line-height: 1.8;
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    overflow-wrap: break-word;
+}
+
+/* Estilo del título */
+.timeline-item h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Efecto hover para las tarjetas */
+.timeline-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #f0f8ff;
+}
+
+/* Animación para la línea de tiempo cuando aparece */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botón de línea de tiempo */
+.timeline-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.timeline-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividad para pantallas pequeñas como móviles */
+@media (max-width: 600px) {
+    .book {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .timeline-item {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .timeline-item h2 {
+        font-size: 18px;
+    }
+
+    .timeline-item ul {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}
+
+/* Responsividad para tabletas */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .book {
+        width: 75%;
+        height: auto;
+        padding: 25px;
+    }
+
+    .timeline-item {
+        max-width: 90%;
+    }
+
+    .timeline-item h2 {
+        font-size: 20px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
